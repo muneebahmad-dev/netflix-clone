@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { BellIcon, SearchIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
+import useAuth from '../hooks/useAuth'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const { logout } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +26,7 @@ const Header = () => {
     <header className={`${isScrolled && 'bg-[#141414]'}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
         <img
-          src="https://rb.gy/ulxxee"
+          src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}NetflixLogo.svg`}
           width={90}
           height={90}
           className="cursor-pointer object-contain"
@@ -43,7 +45,11 @@ const Header = () => {
         <p className="hidden lg:inline">Kids</p>
         <BellIcon className="h-6 w-6" />
         <Link href="/account">
-          <img src="https://rb.gy/g1pwyx" className="cursor-pointer rounded" />
+          <img
+            src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}account.png`}
+            onClick={async () => await logout()}
+            className="cursor-pointer rounded"
+          />
         </Link>
       </div>
     </header>

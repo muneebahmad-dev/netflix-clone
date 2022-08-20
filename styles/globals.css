@@ -21,4 +21,13 @@
         @apply flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition 
         hover:opacity-75 md:py-2.5 md:px-8 md:text-xl 
     }
+    .input{
+        @apply px-5 w-full py-3.5 rounded bg-[#333] outline-none placeholder-[gray] focus:bg-[#454545]
+    }
+    .loginLabel {
+        @apply inline-block w-full
+    }
+    .modalButton{
+        @apply flex h-11 w-11 border-2 hover:border-white hover:bg-white/10 items-center justify-center rounded-full hover:bg-[gray] transition duration-[.4s]
+    }
 }
