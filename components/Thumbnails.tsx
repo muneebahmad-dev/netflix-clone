@@ -1,3 +1,4 @@
+import { DocumentData } from 'firebase/firestore'
 import Image from 'next/image'
 import React from 'react'
 import { useRecoilState } from 'recoil'
@@ -6,7 +7,7 @@ import { BASE_URL } from '../constants/movie'
 import { Movie } from '../typings'
 
 interface Props {
-  movie: Movie
+  movie: Movie | DocumentData
 }
 
 const Thumbnails = ({ movie }: Props) => {
